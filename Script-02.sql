@@ -96,12 +96,34 @@ INSERT INTO itens_treino (id_treino, id_exercicio, series, repeticoes) VALUES
 (2, 3, 4, 15),
 (3, 4, 4, 8),
 (4, 7, 3, 10);
-
 -- seleção de tabela especifica--
 -- select * from nome_da_tabela --
 -- where coluna da tabela 
 -- or nome de outra coluna.. 
 
+/*DATE FORMAT(data_nascimento, "%d/%m/%y") as "data de Nascimento
+from alunos; formatação de data para colocala na sequencia escolhida*/
 
+/*select max(peso) from alunos; seleciona o maio valor da coluna da tabela ou da tabela escolhida*/
+
+/*select * from exercicios; seleciona todas as informaçoes que estão dentro da tabela*/
+
+/*date format formatação de dados*/
+
+-- inner join--
+/*select a.nome as "Nome do Aluno",
+p.nome as "Nome do Plano"
+from alunos as a 
+inner join planos as p on a.id_plano=p.id;*/
+
+/*select t.nome as "Nome do treino",
+i.nome as "Nome do instrutor"
+from treinos as t
+inner join instrutores as t.id_instrutor=i.id;*/
+
+select i.nome "Nome do instrutor", t.objetivo "Objetivo do treino", t.data_criacao "Data de Criação do treino"
+from instrutores i
+join treinos t on t.id_instrutor= i.id
+where i.nome = 'Renato Personal';
 
 
