@@ -260,10 +260,15 @@ update planos set valor_mensal = 50.00
 where id = 5;
 
 select * from auditoria_precos;
-
 create table log_sistema(
 id int auto_increment primary key,
 mensagem varchar(255),
 data_sistema datetime
 );
-create trigger
+create trigger trg_log_novo_treino
+after insert on treinos for each row
+begin
+		insert into log_sistema (mensagem, data_sistema)
+		values(concat('Novo treino criado para aluno id' , new.id_aluno), now());
+end
+
